@@ -1,0 +1,75 @@
+<%= form_for(@highlight , :html => { :class => 'form-horizontal' }) do  |f| %>
+  <% if @highlight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@highlight.errors.count, "error") %> prohibited this highlight from being saved:</h2>
+
+      <ul>
+      <% @highlight.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :selector, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :text, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :text, :class => 'text_field' %>
+    </div>
+  </div>
+
+
+  <div class="control-group">
+    <%= f.label :host, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :host, :class => 'text_field' %>
+    </div>
+  </div>
+
+
+  <div class="control-group">
+    <%= f.label :port, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :port, :class => 'text_field' %>
+    </div>
+  </div>
+
+
+
+  <div class="control-group">
+    <%= f.label :path, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :path, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :start_offset, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :start_offset, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :end_offset, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :end_offset, :class => 'text_field' %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), highlights_path, :class => 'btn' %>
+  </div>
+
+
+<% end %>
+
+

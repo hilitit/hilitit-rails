@@ -1,10 +1,29 @@
 Rails.application.routes.draw do
-  devise_for :users
+
+  resources :highlights do
+
+  end
+
+  get 'highlights/new'
+
+  get 'highlights/create'
+
+  get 'highlights/update'
+
+  get 'highlights/edit'
+
+  get 'highlights/destroy'
+
+  get 'highlights/index'
+
+  get 'highlights/show'
+
+  devise_for :users, controllers: { sessions: "sessions" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root to: "highlights#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
