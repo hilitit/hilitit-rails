@@ -5,16 +5,15 @@
 # below each fixture, per the syntax in the comments below
 #
 one:
-  user: one,
-  selector: " BODY. div ",
-  text: 'impossible to continue a peace process with Kurdish fighters',
-  host: "www.aljazeera.com",
-  port: String,
-  path: "/news/2015/07/turkey-erdogan-warns-kurdish-fighters-150728130110904.html",
-  protocol: "http:",
-  start_offset: 10,
-  end_offset: 200,
-  createdAt: Date.new
+  user: one
+  selector: " BODY. div "
+  text: 'impossible to continue a peace process with Kurdish fighters'
+  host: "www.aljazeera.com"
+  port: 80
+  path: "/news/2015/07/turkey-erdogan-warns-kurdish-fighters-150728130110904.html"
+  is_https: true
+  start_offset: 10
+  end_offset: 200
     
-two: {}
+#two: {}
 #  column: value

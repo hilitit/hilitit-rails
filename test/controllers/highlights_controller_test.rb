@@ -1,6 +1,7 @@
 require 'test_helper'
 
 class HighlightsControllerTest < ActionController::TestCase
+
   setup do
     @highlight = highlights(:one)
   end
@@ -18,7 +19,7 @@ class HighlightsControllerTest < ActionController::TestCase
 
   test "should create highlight" do
     assert_difference('Highlight.count') do
-      post :create, highlight: {  }
+      post :create, highlight: {  user: users(:two), selector: " BODY. div2 ", text: 'soem text', host: "www.example.com", port: 80, path: "index.html", is_https: true, start_offset: 10, end_offset: 200 }
     end
 
     assert_redirected_to highlight_path(assigns(:highlight))
@@ -35,7 +36,7 @@ class HighlightsControllerTest < ActionController::TestCase
   end
 
   test "should update highlight" do
-    patch :update, id: @highlight, highlight: {  }
+    patch :update, id: @highlight, highlight: { text: "some text and stuff"  }
     assert_redirected_to highlight_path(assigns(:highlight))
   end
 

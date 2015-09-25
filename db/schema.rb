@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(version: 20150923115315) do
   enable_extension "plpgsql"
 
   create_table "highlights", force: :cascade do |t|
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "user_id"
-    t.string   "selector",     limit: 64,             null: false
-    t.string   "text",                                null: false
-    t.string   "host",         limit: 64,             null: false
-    t.integer  "port",         limit: 8,              null: false
-    t.string   "path",         limit: 64,             null: false
-    t.integer  "is_https",     limit: 8,  default: 0
-    t.integer  "start_offset", limit: 8,              null: false
-    t.integer  "end_offset",   limit: 8,              null: false
+    t.string   "selector",     limit: 64,               null: false
+    t.string   "text",                                  null: false
+    t.string   "host",         limit: 64,               null: false
+    t.integer  "port",         limit: 8,                null: false
+    t.string   "path",         limit: 1024,             null: false
+    t.integer  "is_https",     limit: 8,    default: 0
+    t.integer  "start_offset", limit: 8,                null: false
+    t.integer  "end_offset",   limit: 8,                null: false
   end
 
   create_table "users", force: :cascade do |t|
