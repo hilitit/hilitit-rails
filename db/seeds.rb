@@ -31,6 +31,14 @@ user3.save!
 
 
 highlight1 = Highlight.new
+highlight1.selector = " BODY. div "
+highlight1.text = 'impossible to continue a peace process with Kurdish fighters'
+highlight1.host = "www.aljazeera.com"
+highlight1.port = 80
+highlight1.path = "/news/2015/07/turkey-erdogan-warns-kurdish-fighters-150728130110904.html"
+highlight1.is_https = true
+highlight1.start_offset = 10
+highlight1.end_offset = 200
 highlight1.user = user1
 highlight1.save!
 

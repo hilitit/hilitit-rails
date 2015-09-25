@@ -13,6 +13,7 @@ describe ApplicationController do
     @user = FactoryGirl.create(:user)
   end
 
+
   describe "After sigin-in" do
 
     it "redirects to the / page" do
