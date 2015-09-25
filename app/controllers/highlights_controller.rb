@@ -4,7 +4,7 @@ class HighlightsController < ApplicationController
   # GET /highlights
   # GET /highlights.json
   def index
-    @highlights = Highlight.all
+    @highlights = current_user.highlights
   end
 
   # GET /highlights/1
@@ -14,7 +14,7 @@ class HighlightsController < ApplicationController
 
   # GET /highlights/new
   def new
-    @highlight = Highlight.new
+    @highlight = Highlight.new(user: current_user)
   end
 
   # GET /highlights/1/edit

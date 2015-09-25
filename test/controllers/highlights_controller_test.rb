@@ -1,9 +1,14 @@
 require 'test_helper'
 
 class HighlightsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
+
 
   setup do
-    @highlight = highlights(:one)
+    @request.env["devise.mapping"] = Devise.mappings[:user]
+    user = FactoryGirl.create(:user)
+    sign_in user
+    @highlight = FactoryGirl.create(:highlight, user: user)
   end
 
   test "should get index" do

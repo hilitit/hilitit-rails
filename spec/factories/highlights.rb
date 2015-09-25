@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :highlight do
-    user  build(:user)
+    #user FactoryGirl.build(:user)
     selector " BODY. div "
     text 'impossible to continue a peace process with Kurdish fighters'
     host "www.aljazeera.com"

@@ -33,7 +33,7 @@ gem 'devise'
 # gem 'unicorn'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -49,5 +49,14 @@ group :development do
   gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails', '~> 3.0.0'
 
+  gem 'reek'
+  gem 'minitest-reporters'
+  gem "rspec_junit_formatter"
+  gem "simplecov"
+  gem "simplecov-csv"
+
 end
 
+
+gem "database_cleaner", :group => :test
+gem "email_spec", :group => :test

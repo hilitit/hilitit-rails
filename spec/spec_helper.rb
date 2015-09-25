@@ -13,8 +13,31 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 #
+
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rspec/rails'
+require 'email_spec'
+require 'reek/spec'
+require 'simplecov'
+require 'factory_girl_rails'
+
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
+ActiveRecord::Migration.maintain_test_schema!
+
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
+
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  config.use_transactional_fixtures = true
+  config.order = "random"
+  config.infer_spec_type_from_file_location!
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin
@@ -75,4 +98,5 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 =end
+
 end
