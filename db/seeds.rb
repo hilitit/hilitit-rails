@@ -36,12 +36,24 @@ highlight1.text = 'impossible to continue a peace process with Kurdish fighters'
 highlight1.host = "www.aljazeera.com"
 highlight1.port = 80
 highlight1.path = "/news/2015/07/turkey-erdogan-warns-kurdish-fighters-150728130110904.html"
-highlight1.is_https = true
+highlight1.is_https = false
 highlight1.start_offset = 10
 highlight1.end_offset = 200
 highlight1.user = user1
 highlight1.save!
 
+
+highlight2 = Highlight.new
+highlight2.selector = "#first > :nth(1)"
+highlight2.text = 'eiusmod tempor incididunt'
+highlight2.host = "localhost"
+highlight2.port = 9002
+highlight2.path = "/~mohammed/index.html"
+highlight2.is_https = false
+highlight2.start_offset = 8
+highlight2.end_offset = 23
+highlight2.user = user1
+highlight2.save!
 
 
 
