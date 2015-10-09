@@ -54,6 +54,8 @@ group :development do
   gem "rspec_junit_formatter"
   gem "simplecov"
   gem "simplecov-csv"
+  gem 'rspec_api_documentation'
+
 
 end
 
