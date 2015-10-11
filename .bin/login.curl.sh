@@ -1,12 +1,13 @@
 PORT="9002";
+EMAIL="tillawy@me.com";
+PASSWORD="password";
 curl -v \
-  --user "tillawy@me.com:password" \
+  --user "${EMAIL}:${PASSWORD}" \
 	-H 'Content-Type: application/json' \
-  -H 'Accept: application/json' \
-	http://hilit.it:${PORT}/api/v1/sessions/create \
+  -H "Accept: application/vnd.hilitit.v1" \
+	http://hilit.it:${PORT}/api/sessions \
 	-XPOST \
-  -d "" \
-  -c cookie > /dev/null
+  -d ""
 
 
   #-d "{'user' : { 'email' : 'tillawy@me.com', 'password' : 'password'}}" \

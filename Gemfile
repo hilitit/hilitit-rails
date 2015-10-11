@@ -55,6 +55,9 @@ group :development do
   gem "simplecov"
   gem "simplecov-csv"
   gem 'rspec_api_documentation'
+  gem 'guard'
+	gem 'guard-rspec'
+  gem 'guard-minitest'
 
 
 end

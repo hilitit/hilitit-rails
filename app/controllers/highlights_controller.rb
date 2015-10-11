@@ -62,6 +62,13 @@ class HighlightsController < ApplicationController
       format.html { redirect_to highlights_url, notice: 'Highlight was successfully destroyed.' }
       format.json { head :no_content }
     end
+
+  # POST /highlight/query
+  # POST /highlight/query.json
+  def query
+
+  end 
+
   end
 
   private
