@@ -15,5 +15,15 @@ one:
   start_offset: 10
   end_offset: 200
     
+one:
+  user: two
+  selector: " BODY. div "
+  text: 'impossible to continue a peace process with Kurdish fighters'
+  host: "localhost"
+  port: 9001
+  path: "/~mohammed/index.html"
+  is_https: false
+  start_offset: 22
+  end_offset: 30
 #two: {}
 #  column: value
