@@ -16,8 +16,9 @@ RSpec.describe "HighlightsController", :type => :request do
       highlight = FactoryGirl.create(:highlight, user: user)
       headers = {}
       headers["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{user.email}:#{user.password}")
-      get '/highlights.json', {}, headers
+      get '/api/highlights.json', {}, headers
       expect(response).to be_success
+      expect(response).to render_template("highlights/index")
       json = JSON.parse(response.body)
       expect(json.length).to eq(1)
       expect(json[0]['id']).to eq(highlight.id)
