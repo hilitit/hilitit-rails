@@ -95,6 +95,9 @@ guard :rspec, cmd: "bundle exec rspec" do
   end
 end
 
+notification :terminal_notifier
+
+
 # Guardfile
 notification :tmux,
   display_message: true,
