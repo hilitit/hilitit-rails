@@ -20,6 +20,22 @@ RSpec.describe "HighlightsController", :type => :request do
         @headers = {}
         @headers["HTTP_AUTHORIZATION"] = "Basic " + Base64::encode64("#{@user.email}:#{@user.password}")
       end
+
+      post '/api/highlights.json' do 
+        example "create/post a new entry" do 
+          explanation ""
+          ahighlight = FactoryGirl.build(:highlight, user: nil ) 
+          #puts ahighlight.to_json
+          post '/api/highlights.json', {highlight: ahighlight.to_json}, @headers
+          expect(response).to be_success
+          expect(response).to render_template("highlights/show")
+          json = JSON.parse(response.body)
+          expect(json['selector']).to eq(ahighlight.selector)
+          expect(json['start_offset']).to eq(ahighlight.start_offset)
+          expect(json['end_offset']).to eq(ahighlight.end_offset)
+        end
+      end
+
       get '/api/highlights.json' do 
         example "listing " do 
           explanation "This method creates a new order."

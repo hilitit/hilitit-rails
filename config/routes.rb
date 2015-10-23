@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
-      resources :highlights, only: :index
+      resources :highlights, only: [:index,:create]
     end
   end
 

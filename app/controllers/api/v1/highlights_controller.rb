@@ -21,9 +21,9 @@ class Api::V1::HighlightsController < ApplicationController
   end
 
   # GET /highlights/new
-  def new
-    @highlight = Highlight.new(user: current_user)
-  end
+  #def new
+  #  @highlight = Highlight.new(user: current_user)
+  #end
 
   # GET /highlights/1/edit
   def edit
@@ -36,10 +36,8 @@ class Api::V1::HighlightsController < ApplicationController
 
     respond_to do |format|
       if @highlight.save
-        format.html { redirect_to @highlight, notice: 'Highlight was successfully created.' }
-        format.json { render :show, status: :created, location: @highlight }
+        format.json { render "highlights/show" , status: :created, location: @highlight }
       else
-        format.html { render :new }
         format.json { render json: @highlight.errors, status: :unprocessable_entity }
       end
     end
@@ -77,6 +75,8 @@ class Api::V1::HighlightsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def highlight_params
-      params.require(:highlight).permit(:selector, :text, :host, :port ,:path, :start_offset, :end_offset)
+      #params.require(:highlight).permit(:selector, :text, :host, :port ,:path, :start_offset, :end_offset)
+      p = JSON.parse(params[:highlight])
+      p.slice( 'selector', 'text', 'host', 'port' , 'path', 'start_offset', 'end_offset' )
     end
 end
