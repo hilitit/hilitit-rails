@@ -12,6 +12,9 @@ RSpec.describe "HighlightsController", :type => :request do
 
     resource "Highlights" do 
       before(:each) do
+        # no need for seeds
+        Highlight.delete_all
+        User.delete_all
         @user = FactoryGirl.create(:user, email: "asdf@domain.com") 
         @highlight = FactoryGirl.create(:highlight, user:  @user ) 
         @headers = {}
@@ -33,10 +36,19 @@ RSpec.describe "HighlightsController", :type => :request do
         end
       end
 
-      get "/api/highlights.json?path=" do 
+      get "/api/highlights.json?host=\#{HOST}&path=&\#{PATH}&is_https=\#{IS_HTTP}&port=\#{PORT}" do 
+        example "should return empty result if not exists" do 
+          explanation "empty [] if no highlights exist"
+          get '/api/highlights.json', {host: "somedomain.com" , path: "index.html", is_https: false, port: 80 }, @headers
+          #expect(response.status).to eq(200)
+          expect(response).to be_success
+          expect(response).to render_template("highlights/index")
+          json = JSON.parse(response.body)
+          expect(json.length).to eq(0)
+        end
+
         example "should query highlights using host,path,port,is_https" do 
-          explanation "list the highlights"
-          get '/api/highlights.json', {}, @headers
+          get '/api/highlights.json', {host: @highlight.host , path: @highlight.path, is_https: @highlight.is_https, port: @highlight.port }, @headers
           #expect(response.status).to eq(200)
           expect(response).to be_success
           expect(response).to render_template("highlights/index")

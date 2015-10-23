@@ -7,7 +7,11 @@ class Api::V1::HighlightsController < ApplicationController
   # GET /highlights
   # GET /highlights.json
   def index
-    @highlights = current_user.highlights
+    @highlights = Highlight.where(nil)
+    @highlights = @highlights.host(params[:host]) if params[:host].present?
+    @highlights = @highlights.path(params[:path]) if params[:path].present?
+    @highlights = @highlights.port(params[:port]) if params[:port].present?
+    @highlights = @highlights.is_https(params[:is_https]) if params[:is_https].present?
     render "highlights/index"
   end
 
