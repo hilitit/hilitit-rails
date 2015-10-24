@@ -8,10 +8,12 @@ class Api::V1::HighlightsController < ApplicationController
   # GET /highlights.json
   def index
     @highlights = Highlight.where(nil)
-    @highlights = @highlights.host(params[:host]) if params[:host].present?
-    @highlights = @highlights.path(params[:path]) if params[:path].present?
+    @highlights = @highlights.hostname(params[:hostname]) if params[:hostname].present?
+    @highlights = @highlights.pathname(params[:pathname]) if params[:pathname].present?
     @highlights = @highlights.port(params[:port]) if params[:port].present?
-    @highlights = @highlights.is_https(params[:is_https]) if params[:is_https].present?
+    @highlights = @highlights.protocol(params[:protocol]) if params[:protocol].present?
+    @highlights = @highlights.protocol(params[:search]) if params[:search].present?
+    @highlights = @highlights.protocol(params[:pathname_hash]) if params[:pathname_hash].present?
     render "highlights/index"
   end
 
@@ -77,6 +79,6 @@ class Api::V1::HighlightsController < ApplicationController
     def highlight_params
       #params.require(:highlight).permit(:selector, :text, :host, :port ,:path, :start_offset, :end_offset)
       p = JSON.parse(params[:highlight])
-      p.slice( 'selector', 'text', 'host', 'port' , 'path', 'start_offset', 'end_offset' )
+      p.slice( 'selector', 'text', 'hostname', 'port' , 'pathname' ,'search', 'pathname_hash', 'protocol', 'start_offset', 'end_offset' )
     end
 end

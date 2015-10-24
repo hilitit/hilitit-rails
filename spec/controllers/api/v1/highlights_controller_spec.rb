@@ -55,7 +55,7 @@ RSpec.describe "HighlightsController", :type => :request do
       get "/api/highlights.json?host=\#{HOST}&path=&\#{PATH}&is_https=\#{IS_HTTP}&port=\#{PORT}" do 
         example "should return empty result if not exists" do 
           explanation "empty [] if no highlights exist"
-          get '/api/highlights.json', {host: "somedomain.com" , path: "index.html", is_https: false, port: 80 }, @headers
+          get '/api/highlights.json', {hostname: "somedomain.com" , pathname: "index.html", protocol: "http:", port: 80 }, @headers
           #expect(response.status).to eq(200)
           expect(response).to be_success
           expect(response).to render_template("highlights/index")
@@ -64,7 +64,7 @@ RSpec.describe "HighlightsController", :type => :request do
         end
 
         example "should query highlights using host,path,port,is_https" do 
-          get '/api/highlights.json', {host: @highlight.host , path: @highlight.path, is_https: @highlight.is_https, port: @highlight.port }, @headers
+          get '/api/highlights.json', {hostname: @highlight.hostname , pathname: @highlight.pathname, protocol: @highlight.protocol, port: @highlight.port }, @headers
           #expect(response.status).to eq(200)
           expect(response).to be_success
           expect(response).to render_template("highlights/index")
