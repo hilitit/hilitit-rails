@@ -8,10 +8,10 @@ one:
   user: one
   selector: " BODY. div "
   text: 'impossible to continue a peace process with Kurdish fighters'
-  host: "www.aljazeera.com"
+  hostname: "www.aljazeera.com"
   port: 80
-  path: "/news/2015/07/turkey-erdogan-warns-kurdish-fighters-150728130110904.html"
-  is_https: true
+  pathname: "/news/2015/07/turkey-erdogan-warns-kurdish-fighters-150728130110904.html"
+  protocol: "http:"
   start_offset: 10
   end_offset: 200
     
@@ -19,10 +19,10 @@ one:
   user: two
   selector: " BODY. div "
   text: 'impossible to continue a peace process with Kurdish fighters'
-  host: "localhost"
+  hostname: "localhost"
   port: 9001
-  path: "/~mohammed/index.html"
-  is_https: false
+  pathname: "/~mohammed/index.html"
+  protocol: "http:"
   start_offset: 22
   end_offset: 30
 #two: {}

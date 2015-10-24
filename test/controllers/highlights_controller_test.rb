@@ -24,7 +24,7 @@ class HighlightsControllerTest < ActionController::TestCase
 
   test "should create highlight" do
     assert_difference('Highlight.count') do
-      post :create, highlight: {  user: users(:two), selector: " BODY. div2 ", text: 'soem text', host: "www.example.com", port: 80, path: "index.html", is_https: true, start_offset: 10, end_offset: 200 }
+      post :create, highlight: {  user: users(:two), selector: " BODY. div2 ", text: 'soem text', hostname: "www.example.com", port: 80, pathname: "index.html", protocol: "https", start_offset: 10, end_offset: 200 }
     end
 
     assert_redirected_to highlight_path(assigns(:highlight))

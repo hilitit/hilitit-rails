@@ -2,6 +2,8 @@ class Api::V1::HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
 
   before_action :authenticate_user!
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
+
 
 
   # GET /highlights
@@ -34,6 +36,8 @@ class Api::V1::HighlightsController < ApplicationController
   # POST /highlights
   # POST /highlights.json
   def create
+    puts "create ..."
+    puts highlight_params
     @highlight = Highlight.new(highlight_params)
 
     respond_to do |format|
@@ -79,6 +83,10 @@ class Api::V1::HighlightsController < ApplicationController
     def highlight_params
       #params.require(:highlight).permit(:selector, :text, :host, :port ,:path, :start_offset, :end_offset)
       p = JSON.parse(params[:highlight])
+      puts "highlight_params"
+      #puts p
       p.slice( 'selector', 'text', 'hostname', 'port' , 'pathname' ,'search', 'pathname_hash', 'protocol', 'start_offset', 'end_offset' )
+      #params.require(:highlight).permit( 'selector', 'text', 'hostname', 'port' , 'pathname' ,'search', 'pathname_hash', 'protocol', 'start_offset', 'end_offset' )
+
     end
 end
