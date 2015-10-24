@@ -59,6 +59,7 @@ group :development do
 	gem 'guard-rspec'
   gem 'guard-minitest'
   gem 'terminal-notifier-guard'
+  gem 'meta_request' # for chrome RailsPanel 
 
 end
 
