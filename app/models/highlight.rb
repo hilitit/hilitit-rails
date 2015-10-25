@@ -1,4 +1,10 @@
 class Highlight < ActiveRecord::Base
+  before_save :default_values
+  def default_values
+    unless self.port
+      self.port = self.protocol == "https:"  ? 443 : 80 
+    end
+  end
 
   scope :hostname, -> (h) { where hostname: h }
   scope :pathname, -> (p) { where pathname: p }
