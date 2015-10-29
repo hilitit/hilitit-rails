@@ -54,6 +54,25 @@ RSpec.describe "HighlightsController", :type => :request do
         end
       end
 
+
+      get '/api/highlights/:id.json' do 
+        example "listing " do 
+          explanation "This method creates a new order."
+
+          get "/api/highlights/#{@highlight.id}.json", {}, @headers
+          #expect(response.status).to eq(200)
+          expect(response).to be_success
+          expect(response).to render_template("highlights/show")
+          json = JSON.parse(response.body)
+          expect(json['id']).to eq(@highlight.id)
+          expect(json['start_offset']).to eq(@highlight.start_offset)
+          expect(json['end_offset']).to eq(@highlight.end_offset)
+          expect(json['user_id']).to eq(@user.id)
+          expect(json['text']).to eq(@highlight.text)
+        end
+      end
+
+
       get "/api/highlights.json?host=\#{HOST}&path=&\#{PATH}&is_https=\#{IS_HTTP}&port=\#{PORT}" do 
         example "should return empty result if not exists" do 
           explanation "empty [] if no highlights exist"
@@ -78,8 +97,6 @@ RSpec.describe "HighlightsController", :type => :request do
       end
 
     end
-
-
 
 
 

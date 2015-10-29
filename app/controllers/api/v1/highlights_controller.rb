@@ -22,6 +22,7 @@ class Api::V1::HighlightsController < ApplicationController
   # GET /highlights/1
   # GET /highlights/1.json
   def show
+    render "highlights/show"
   end
 
   # GET /highlights/new
@@ -36,7 +37,7 @@ class Api::V1::HighlightsController < ApplicationController
   # POST /highlights
   # POST /highlights.json
   def create
-    puts "create ..."
+    #puts "create ..."
     puts highlight_params
     @highlight = Highlight.new(highlight_params)
     @highlight.user = current_user
