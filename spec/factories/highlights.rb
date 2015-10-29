@@ -11,5 +11,6 @@ FactoryGirl.define do
     protocol "http:"
     start_offset 10
     end_offset 200
+    tag_name "P"
   end
 end

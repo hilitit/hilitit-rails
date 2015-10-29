@@ -87,7 +87,7 @@ class Api::V1::HighlightsController < ApplicationController
       p = JSON.parse(params[:highlight])
       puts "highlight_params"
       #puts p
-      p.slice( 'selector', 'text', 'hostname', 'port' , 'pathname' ,'search', 'pathname_hash', 'protocol', 'start_offset', 'end_offset' )
+      p.slice( 'selector', 'text', 'hostname', 'port' , 'pathname' ,'search', 'pathname_hash', 'protocol', 'start_offset', 'end_offset', 'tag_name' )
       #params.require(:highlight).permit( 'selector', 'text', 'hostname', 'port' , 'pathname' ,'search', 'pathname_hash', 'protocol', 'start_offset', 'end_offset' )
 
     end

@@ -69,6 +69,7 @@ RSpec.describe "HighlightsController", :type => :request do
           expect(json['end_offset']).to eq(@highlight.end_offset)
           expect(json['user_id']).to eq(@user.id)
           expect(json['text']).to eq(@highlight.text)
+          expect(json['tag_name']).to eq(@highlight.tag_name)
         end
       end
 

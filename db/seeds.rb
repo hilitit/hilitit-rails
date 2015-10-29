@@ -40,6 +40,7 @@ highlight1.protocol = "http:"
 highlight1.start_offset = 10
 highlight1.end_offset = 200
 highlight1.user = user1
+highlight1.tag_name = "div"
 highlight1.save!
 
 
@@ -53,6 +54,7 @@ highlight2.protocol = "http:"
 highlight2.start_offset = 8
 highlight2.end_offset = 23
 highlight2.user = user1
+highlight2.tag_name = "p"
 highlight2.save!
 
 

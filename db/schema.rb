@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150923115315) do
     t.string   "protocol",      limit: 6,    default: "f"
     t.integer  "start_offset",  limit: 8,                  null: false
     t.integer  "end_offset",    limit: 8,                  null: false
+    t.string   "tag_name",      limit: 64,                 null: false
   end
 
   create_table "users", force: :cascade do |t|

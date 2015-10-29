@@ -14,6 +14,7 @@ class CreateHighlights < ActiveRecord::Migration
       t.string :protocol , limit: 6,         default: false
       t.integer :start_offset, limit: 6,         :null => false
       t.integer :end_offset, limit: 6,         :null => false
+      t.string :tag_name, limit: 64,         :null => false
 
     end
   end
