@@ -14,8 +14,8 @@ class Api::V1::HighlightsController < ApplicationController
     @highlights = @highlights.pathname(params[:pathname]) if params[:pathname].present?
     @highlights = @highlights.port(params[:port]) if params[:port].present?
     @highlights = @highlights.protocol(params[:protocol]) if params[:protocol].present?
-    @highlights = @highlights.protocol(params[:search]) if params[:search].present?
-    @highlights = @highlights.protocol(params[:pathname_hash]) if params[:pathname_hash].present?
+    @highlights = @highlights.search(params[:search]) if params[:search].present?
+    @highlights = @highlights.pathname_hash(params[:pathname_hash]) if params[:pathname_hash].present?
     render "highlights/index"
   end
 
@@ -39,6 +39,7 @@ class Api::V1::HighlightsController < ApplicationController
     puts "create ..."
     puts highlight_params
     @highlight = Highlight.new(highlight_params)
+    @highlight.user = current_user
 
     respond_to do |format|
       if @highlight.save
