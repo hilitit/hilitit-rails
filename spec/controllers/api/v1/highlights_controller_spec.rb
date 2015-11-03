@@ -38,12 +38,28 @@ RSpec.describe "HighlightsController", :type => :request do
       end
 
       get '/api/highlights.json' do 
-        example "listing " do 
+        example "listing by user" do 
           explanation "This method creates a new order."
 
           get '/api/highlights.json', {}, @headers
           #expect(response.status).to eq(200)
           expect(response).to be_success
+          expect(response).to render_template("highlights/index")
+          json = JSON.parse(response.body)
+          expect(json.length).to eq(1)
+          expect(json[0]['id']).to eq(@highlight.id)
+          expect(json[0]['start_offset']).to eq(@highlight.start_offset)
+          expect(json[0]['end_offset']).to eq(@highlight.end_offset)
+          expect(json[0]['user_id']).to eq(@user.id)
+        end
+
+
+        example "listing by guest" do 
+          explanation "This method creates a "
+
+          get '/api/highlights.json', {}, {}
+          expect(response).to be_success
+          expect(response.status).to eq(200)
           expect(response).to render_template("highlights/index")
           json = JSON.parse(response.body)
           expect(json.length).to eq(1)

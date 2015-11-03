@@ -1,7 +1,7 @@
 class Api::V1::HighlightsController < ApplicationController
   before_action :set_highlight, only: [:show, :edit, :update, :destroy]
 
-  before_action :authenticate_user!
+  before_action :authenticate_user! , :except => [:index]
   protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format == 'application/json' }
 
 
