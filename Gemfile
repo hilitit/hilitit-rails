@@ -71,6 +71,4 @@ end
 gem "database_cleaner", :group => :test
 gem "email_spec", :group => :test
 
-group :production do
-  gem 'unicorn'
-end
+gem 'unicorn'
