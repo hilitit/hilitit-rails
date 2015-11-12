@@ -40,6 +40,8 @@ group :development, :test do
   gem 'byebug'
 end
 
+gem 'minitest-reporters'
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
@@ -49,8 +51,6 @@ group :development do
   gem "factory_girl_rails", "~> 4.0"
   gem 'rspec-rails', '~> 3.0.0'
 
-  gem 'reek'
-  gem 'minitest-reporters'
   gem "rspec_junit_formatter"
   gem "simplecov"
   gem "simplecov-csv"
@@ -64,5 +64,13 @@ group :development do
 end
 
 
+group :production do
+	gem 'therubyracer'
+end
+
 gem "database_cleaner", :group => :test
 gem "email_spec", :group => :test
+
+group :production do
+  gem 'unicorn'
+end
