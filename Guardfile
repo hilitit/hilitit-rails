@@ -118,4 +118,4 @@ notification :tmux,
   pending: 'colour179',
 
   # Notify on all tmux clients
-  display_on_all_clients: false
+  display_on_all_clients: true
