@@ -77,15 +77,17 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.default_url_options = { host: 'www.hilit.it', port: 433 }
 
-ActionMailer::Base.smtp_settings = {
-       :address              => "email-smtp.eu-west-1.amazonaws.com",
-       :domain               => "hilit.it",
-       :port                 => 587,
-       :user_name            => ENV["HILITIT_AWS_SES_USER"],
-       :password             => ENV["HILITIT_AWS_SES_PASSWORD"],
-       :authentication       => :login
-}
+
+  ActionMailer::Base.smtp_settings = {
+    :address              => "email-smtp.eu-west-1.amazonaws.com",
+    :domain               => "hilit.it",
+    :port                 => 587,
+    :user_name            => ENV["HILITIT_AWS_SES_USER"],
+    :password             => ENV["HILITIT_AWS_SES_PASSWORD"],
+    :authentication       => :login
+  }
 
 
 end
