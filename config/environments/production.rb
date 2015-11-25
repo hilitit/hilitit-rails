@@ -81,7 +81,7 @@ Rails.application.configure do
 
 
   ActionMailer::Base.smtp_settings = {
-    :address              => "email-smtp.eu-west-1.amazonaws.com",
+    :address              => "email-smtp.us-west-2.amazonaws.com",
     :domain               => "hilit.it",
     :port                 => 587,
     :user_name            => ENV["HILITIT_AWS_SES_USER"],
