@@ -14,8 +14,9 @@ one:
   protocol: "http:"
   start_offset: 10
   end_offset: 200
+  tag_name: 'p'
     
-one:
+two:
   user: two
   selector: " BODY. div "
   text: 'impossible to continue a peace process with Kurdish fighters'
@@ -25,5 +26,5 @@ one:
   protocol: "http:"
   start_offset: 22
   end_offset: 30
-#two: {}
-#  column: value
+  tag_name: 'div'
+

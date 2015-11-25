@@ -4,17 +4,18 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-  user: one
-  selector: " BODY. div "
-  text: 'impossible to continue a peace process with Kurdish fighters'
-  hostname: "www.aljazeera.com"
-  port: 80
-  pathname: "/news/2015/07/turkey-erdogan-warns-kurdish-fighters-150728130110904.html"
-  pathname_hash: "#asdfasdf"
-  protocol: "http:"
-  start_offset: 10
-  end_offset: 200
+#one:
+#  user: one
+#  selector: " BODY. div "
+#  text: 'impossible to continue a peace process with Kurdish fighters'
+#  hostname: "www.aljazeera.com"
+#  port: 80
+#  pathname: "/news/2015/07/turkey-erdogan-warns-kurdish-fighters-150728130110904.html"
+#  pathname_hash: "#asdfasdf"
+#  protocol: "http:"
+#  start_offset: 10
+#  end_offset: 200
+#  tag_name: "div"
     
 #two: {}
 #  column: value
