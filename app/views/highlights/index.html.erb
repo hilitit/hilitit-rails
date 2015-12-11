@@ -12,6 +12,10 @@
   <tbody>
     <% @highlights.each do |highlight| %>
       <tr>
+        <td><%= highlight.protocol %>//<%= highlight.hostname %><%= highlight.pathname %></td>
+        <td></td>
+     </tr>
+     <tr>
         <td><%= link_to 'Show', highlight %></td>
         <td><%= link_to 'Edit', edit_highlight_path(highlight) %></td>
         <td><%= link_to 'Destroy', highlight, method: :delete, data: { confirm: 'Are you sure?' } %></td>
