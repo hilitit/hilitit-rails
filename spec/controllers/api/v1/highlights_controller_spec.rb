@@ -39,7 +39,7 @@ RSpec.describe "HighlightsController", :type => :request do
 
       get '/api/highlights.json' do 
         example "listing by user" do 
-          explanation "This method creates a new order."
+          explanation "This method creates a new highlight."
 
           get '/api/highlights.json', {}, @headers
           #expect(response.status).to eq(200)
@@ -48,8 +48,9 @@ RSpec.describe "HighlightsController", :type => :request do
           json = JSON.parse(response.body)
           expect(json.length).to eq(1)
           expect(json[0]['id']).to eq(@highlight.id)
-          expect(json[0]['start_offset']).to eq(@highlight.start_offset)
-          expect(json[0]['end_offset']).to eq(@highlight.end_offset)
+          # do we need the next two:
+          #expect(json[0]['start_offset']).to eq(@highlight.start_offset)
+          #expect(json[0]['end_offset']).to eq(@highlight.end_offset)
           expect(json[0]['user_id']).to eq(@user.id)
         end
 
@@ -64,15 +65,16 @@ RSpec.describe "HighlightsController", :type => :request do
           json = JSON.parse(response.body)
           expect(json.length).to eq(1)
           expect(json[0]['id']).to eq(@highlight.id)
-          expect(json[0]['start_offset']).to eq(@highlight.start_offset)
-          expect(json[0]['end_offset']).to eq(@highlight.end_offset)
+          # do we need the next two:
+          #expect(json[0]['start_offset']).to eq(@highlight.start_offset)
+          #expect(json[0]['end_offset']).to eq(@highlight.end_offset)
           expect(json[0]['user_id']).to eq(@user.id)
         end
       end
 
 
       get '/api/highlights/:id.json' do 
-        example "listing " do 
+        example "get a specific highlight " do 
           explanation "This method creates a new order."
 
           get "/api/highlights/#{@highlight.id}.json", {}, @headers
