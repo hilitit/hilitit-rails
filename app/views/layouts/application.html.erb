@@ -5,12 +5,36 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+  <!-- nav bar -->
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">Home</a></li>
+    <li role="presentation"><a href="#">Profile</a></li>
+    <li role="presentation"><a href="#">Messages</a></li>
+  </ul>
+
+
+  <% flash.each do | name, msg| %>
+    <div class="alert alert-<%= name == "notice" ? "success" : "danger" %> alert-dismissible rails-alert-name-<%=name%>" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= msg %>
+    </div>
+  <% end %>
+
+  <!--
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+  -->
 
-  <%= yield %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4"><h2>About Us</h2></div>
+      <div class="col-md-8"><%= yield %></div>
+    </div>
+  </div>
+
 
 </body>
 </html>

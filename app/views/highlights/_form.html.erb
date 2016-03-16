@@ -1,75 +1,15 @@
-<%= form_for(@highlight , :html => { :class => 'form-horizontal' }) do  |f| %>
-  <% if @highlight.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@highlight.errors.count, "error") %> prohibited this highlight from being saved:</h2>
+<%= simple_form_for @highlight, :html => { :class => "form-horizontal highlight" } do |f| %>
 
-      <ul>
-      <% @highlight.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="control-group">
-    <%= f.label :name, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :selector, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :text, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :text, :class => 'text_field' %>
-    </div>
-  </div>
-
-
-  <div class="control-group">
-    <%= f.label :hostname, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :hostname, :class => 'text_field' %>
-    </div>
-  </div>
-
-
-  <div class="control-group">
-    <%= f.label :port, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :port, :class => 'text_field' %>
-    </div>
-  </div>
-
-
-
-  <div class="control-group">
-    <%= f.label :pathname, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :pathname, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :start_offset, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :start_offset, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <%= f.label :end_offset, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :end_offset, :class => 'text_field' %>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <%= f.submit nil, :class => 'btn btn-primary' %>
-    <%= link_to t('.cancel', :default => t("helpers.links.cancel")), highlights_path, :class => 'btn' %>
-  </div>
-
+    <%= f.error_notification %>
+    <%= f.input :text %>
+    <%= f.input :hostname %>
+    <%= f.input :pathname %>
+    <%= f.input :protocol %>
+    <%= f.input :port %>
+    <%= f.input :search %>
+    <%= f.input :pathname_hash %>
+    <%= link_to "Cancel", :back, {:class=>"btn btn-default"} %>
+    <%= f.error :base %>
+    <%= f.button :submit %>
 
 <% end %>
-
-

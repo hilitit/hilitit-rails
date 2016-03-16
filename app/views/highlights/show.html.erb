@@ -1,6 +1,41 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Highlight -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<%= @highlight.id %>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @highlight.user_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:selector) %>:</strong></dt>
+  <dd><%= @highlight.selector %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:text) %>:</strong></dt>
+  <dd><%= @highlight.text %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hostname) %>:</strong></dt>
+  <dd><%= @highlight.hostname %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pathname) %>:</strong></dt>
+  <dd><%= @highlight.pathname %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:search) %>:</strong></dt>
+  <dd><%= @highlight.search %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:pathname_hash) %>:</strong></dt>
+  <dd><%= @highlight.pathname_hash %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:port) %>:</strong></dt>
+  <dd><%= @highlight.port %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:protocol) %>:</strong></dt>
+  <dd><%= @highlight.protocol %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:start_offset) %>:</strong></dt>
+  <dd><%= @highlight.start_offset %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end_offset) %>:</strong></dt>
+  <dd><%= @highlight.end_offset %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tag_name) %>:</strong></dt>
+  <dd><%= @highlight.tag_name %></dd>
+</dl>
 
-<%= link_to 'Edit', edit_highlight_path(@highlight) %> |
-<%= link_to 'Back', highlights_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              highlights_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_highlight_path(@highlight), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              highlight_path(@highlight),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

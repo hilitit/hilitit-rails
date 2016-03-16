@@ -1,4 +1,7 @@
 class Highlight < ActiveRecord::Base
+
+  validates_presence_of :hostname
+
   before_save :default_values
   def default_values
     unless self.port

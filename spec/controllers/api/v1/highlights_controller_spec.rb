@@ -5,11 +5,11 @@ RSpec.describe "HighlightsController", :type => :request do
 
   describe "JSON Api" do
 
-    describe "New Highlights" do 
-      it "should insert a new highlight" do 
-      end
-    end
-
+    #describe "New Highlights" do
+      # it "should insert a new highlight" do
+      # end
+    # end
+    #
     resource "Highlights" do 
       before(:each) do
         # no need for seeds
