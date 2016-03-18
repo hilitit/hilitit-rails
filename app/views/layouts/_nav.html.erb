@@ -1,0 +1,12 @@
+<%= nav_bar :fixed => :top, :brand => "WeHighlight.com" do %>
+  <%= menu_group do %>
+    <% if user_signed_in? %>
+      <%= menu_item "Highlights", highlights_path %>
+      <%= menu_item "Edit #{current_user.email} profile", edit_user_registration_path %>
+      <%= menu_item "Log out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= menu_item "Sign up", new_user_registration_path %>
+      <%= menu_item "Login", new_user_session_path  %>
+    <% end %>
+  <% end %>
+<% end %>
