@@ -43,6 +43,11 @@
       </tr>
     <% end %>
   </tbody>
+  <tr>
+    <td span="5">
+        <%= will_paginate @highlights %>
+    </td>
+  </tr>
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),

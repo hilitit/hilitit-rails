@@ -7,7 +7,7 @@ class HighlightsController < ApplicationController
   # GET /highlights
   # GET /highlights.json
   def index
-    @highlights = current_user.highlights
+    @highlights = current_user.highlights.page(params['page']).per_page(5)
   end
 
   # GET /highlights/1
