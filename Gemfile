@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'simple_form'
 
 
@@ -71,10 +71,17 @@ end
 
 
 group :production do
-	gem 'therubyracer'
+	#gem 'therubyracer'
 end
 
 gem "database_cleaner", :group => :test
 gem "email_spec", :group => :test
 
 gem 'unicorn'
+
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
+
+gem 'will_paginate-bootstrap', '1.0.1'
